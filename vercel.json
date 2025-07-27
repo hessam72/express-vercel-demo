@@ -1,16 +1,19 @@
-// vercel.json
 {
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
+      "src": "public/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/users.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/routes/api.js"
+      "src": "/api/users",
+      "dest": "/api/users.js"
     },
     {
       "src": "/(.*)",
